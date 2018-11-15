@@ -1,0 +1,74 @@
+/**
+* Copyright © Magento, Inc. All rights reserved. 
+*/
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+h3, .table-caption{
+	border-bottom: 1px solid #333;
+	text-transform: uppercase;
+	padding-bottom: 5px;
+}
+
+h5{
+	font-weight: bold;
+}
+
+.table-login-history-data {
+    margin-top: -40px;
+}
+
+.table-login-history-data td {
+	text-align: center;
+}
+
+.table-login-history-data th {
+	text-align: center;
+	color: #401500;
+	background-color: #FFDDCC;
+	border-color: #792700;
+}
+
+@media  screen and (min-width: 768px) {
+	.abs-pager-toolbar .pages, .account .toolbar .pages, .toolbar-giftregistry-results .pages, .toolbar-wishlist-results .pages{
+		right: 93px;
+}
+}
+
+div.login-data-name-and-value{
+	border-bottom: 1px solid #9ab5be; 
+	padding: 14px 2px;
+}
+
+span.login-data-name, span.login-data-value{
+	font-family: 'Comic Sans MS';
+}
+
+span.login-data-name{
+	color: #818199;
+}
+
+span.login-data-value{
+	color: #564864;
+}
+
+@media only screen and (max-width: 639px){
+	.table-wrapper .table:not(.totals):not(.cart):not(.table-comparison) tbody > tr > td {
+		text-align: left;
+}
+}
+
+div.login-data{
+	width: 50%;
+}
+
+{
+	color: #5121f3;
+    background-color: #F8F8FF;
+    border-left: 5px solid #598ecf;
+    border-right: 5px solid #598ecf;
+}

@@ -1,0 +1,34 @@
+<?php
+/**
+ * Copyright © Thana', Inc. All rights reserved. 
+ */
+ 
+/** @var CustomerLogin\Tracking\Block\Account\PreviousLoginData $block */
+?>
+<?php if (!$block->getLastLoginTransactionInformationBeforeCurrentLogin()) : ?>
+    <div class="container">
+        <h3>Previous login data of current login</h3>
+        <div class="well well-lg login-data">
+            <div class="login-data-name-and-value">
+                <span class="login-data-name">Login Number: </span>
+                <span class="login-data-value"><?php echo $block->getPreviouslyOfCurrentLoginId(); ?><span>
+            </div>
+            <div class="login-data-name-and-value">
+                <span class="login-data-name">IP Address: </span>
+                <span class="login-data-value"><?php echo $block->getPreviouslyOfCurrentLoginIpAddress(); ?><span>
+            </div>
+            <div class="login-data-name-and-value">
+                <span class="login-data-name">Device Type: </span>
+                <span class="login-data-value"><?php echo $block->getPreviouslyOfCurrentLoginUserAgent(); ?><span>
+            </div>
+            <div class="login-data-name-and-value">
+                <span class="login-data-name">Date/Time Login: </span>
+                <span class="login-data-value"><?php echo $block->getPreviouslyOfCurrentLoginTime(); ?><span>
+            </div>
+        </div>
+<?php else : ?>
+	<div class="message info empty">
+		<span><?php echo $block->getMessageForFirstLogin(); ?></span>
+	</div>
+<?php endif; ?> 
+    </div>

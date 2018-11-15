@@ -1,0 +1,67 @@
+<?php
+/**
+ * Copyright © Thana', Inc. All rights reserved. 
+ */
+ 
+/** @var CustomerLogin\Tracking\Block\Account\LoginHistoryPagination $block */
+?>
+<h2 class="table-caption"><?php echo __('Login History Records') ?></h2>
+<?php if ($block->getPagerHtml()): ?>
+	<div class="login-history-toolbar toolbar bottom"><?php echo $block->getPagerHtml() ?></div>
+<?php endif ?>
+<?php $loginHistoryRecords = $block->getAllLoginTransactionsForFixedCustomer() ?>
+<?php if ($loginHistoryRecords && count($loginHistoryRecords)): ?>
+	<div class="table-wrapper login-history"> 
+        <table class="table table-login-history-data history table-responsive" id="my-login-history-table">
+            <thead>
+            <tr>
+                <th scope="col" 
+					class="col id">
+					<?php echo __('Login Number') ?>
+				</th>
+                <th scope="col" 
+					class="col address">
+					<?php echo __('IP address') ?>
+				</th>
+                <th scope="col" 
+					class="col login-time">
+					<?php echo __('Date/Time login') ?>
+				</th>
+                <th scope="col" 
+					class="col user-agent">
+					<?php echo __('User Agent') ?>
+				</th> 
+			</tr>
+            </thead>
+            <tbody>
+            <?php foreach ($loginHistoryRecords as $loginHistoryRecord): ?>
+				<tr>
+                    <td data-th="<?= $block->escapeHtml(__('Login Number')) ?>" 
+						class="col id">
+                        <?php echo $loginHistoryRecord->getId() ?> 
+                    </td>
+                    <td data-th="<?= $block->escapeHtml(__('IP address')) ?>"
+                        class="col ipaddress">
+						<?php echo $loginHistoryRecord->getIpAddress(); ?>
+					</td>
+                    <td data-th="<?= $block->escapeHtml(__('Date/Time login')) ?>" 
+						class="col date-time-login">
+                     	<?php echo $loginHistoryRecord->getLoginTime(); ?>
+                    </td>
+                    <td data-th="<?= $block->escapeHtml(__('User Agent')) ?>"
+                        class="col user-agent">
+						<?php echo $loginHistoryRecord->getUserAgent() ?>
+					</td>
+                </tr>
+            <?php endforeach ?>
+            </tbody>
+        </table>
+    </div>  
+    <?php if ($block->getPagerHtml()): ?>
+        <div class="login-history-toolbar toolbar bottom"><?php echo $block->getPagerHtml(); ?></div>
+    <?php endif ?>
+<?php else: ?>
+    <div class="message info empty">
+		<span><?php echo __('No any record.'); ?></span>
+	</div>
+<?php endif ?>
